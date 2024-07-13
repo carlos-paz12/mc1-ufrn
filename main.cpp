@@ -13,8 +13,8 @@ int linear_congruence(int a, int b, int m);
 /**
  * @brief Computes the power of a base raised to an exponent.
  *
- * This function takes two integer parameters, `base` and `expoent`, and returns 
- * the result of raising `base` to the power of `expoent`. It uses a simple 
+ * This function takes two integer parameters, `base` and `expoent`, and returns
+ * the result of raising `base` to the power of `expoent`. It uses a simple
  * iterative approach to compute the power.
  *
  * @param base The base value to be raised.
@@ -38,7 +38,7 @@ int pow(int base, int expoent)
 /**
  * @brief Computes the floor of a given double value.
  *
- * This function takes a double parameter `x` and returns the largest integer 
+ * This function takes a double parameter `x` and returns the largest integer
  * value less than or equal to `x`.
  *
  * @param x The double value to be floored.
@@ -61,7 +61,7 @@ int to_floor(double x)
 /**
  * @brief Computes the ceiling of a given double value.
  *
- * This function takes a double parameter `x` and returns the smallest integer 
+ * This function takes a double parameter `x` and returns the smallest integer
  * value greater than or equal to `x`.
  *
  * @param x The double value to be ceilinged.
@@ -83,14 +83,14 @@ int to_ceil(double x)
 
 /**
  * @brief Check if a given integer is a prime number.
- * 
+ *
  * This function checks whether the given integer @p p is a prime number.
- * A prime number is a natural number greater than 1 that has no positive divisors 
+ * A prime number is a natural number greater than 1 that has no positive divisors
  * other than 1 and itself.
- * 
+ *
  * @param p The integer to be checked for primality.
  * @return true if @p p is a prime number, false otherwise.
- * 
+ *
  * @note The function returns false for values of @p p less than or equal to 1.
  *       It uses the square root of @p p to limit the number of divisors to check,
  *       improving efficiency compared to checking all numbers up to @p p-1.
@@ -120,11 +120,11 @@ bool is_prime(int p)
 
 /**
  * @brief Decomposes an integer into its prime factors and their exponents.
- * 
+ *
  * This function calculates the prime factors and their respective exponents
  * for a given integer n. It stores the results in arrays bases[] and expoents[],
  * and updates quantity_factors with the number of distinct prime factors found.
- * 
+ *
  * @param n The integer to decompose into prime factors.
  * @param quantity_factors [out] Number of distinct prime factors found.
  * @param bases [out] Array to store the prime factors.
@@ -166,10 +166,10 @@ void to_factors(unsigned int n, int &quantity_factors, int *bases, int *expoents
 
 /**
  * @brief Computes the integer represented by the product of prime factors raised to their respective exponents.
- * 
+ *
  * This function calculates the integer represented by the product of prime factors
  * given in the arrays bases[] and expoents[], each raised to their respective exponents.
- * 
+ *
  * @param quantity_factors Number of prime factors.
  * @param bases Array of prime factors.
  * @param expoents Array of exponents corresponding to each prime factor.
@@ -187,11 +187,11 @@ int of_factors(int quantity_factors, int *bases, int *expoents)
 
 /**
  * @brief Computes the greatest common divisor (GCD) of two integers using the Euclidean algorithm.
- * 
+ *
  * This function computes the GCD of two integers `a` and `b` using the Euclidean algorithm,
  * which iteratively finds the remainder when `a` is divided by `b` until `b` becomes zero.
  * The final non-zero remainder is the GCD of `a` and `b`.
- * 
+ *
  * @param a The first integer.
  * @param b The second integer.
  * @return The greatest common divisor (GCD) of `a` and `b`.
@@ -203,7 +203,7 @@ int gcd(int a, int b)
      * Let a and b be integers, not both zero. The largest integer d such that d | a and d | b
      * is called the greatest common divisor of a and b. The greatest common divisor of a and b
      * is denoted by gcd(a, b).
-     * 
+     *
      * EUCLIDEAN ALGORITHM
      * Let a, b ∈ Z, such this a, b > 0. If q, r ∈ such this a = bq + r so gcd(a,b) = gcd(b,r).
      */
@@ -218,16 +218,16 @@ int gcd(int a, int b)
 
 /**
  * @brief Computes the greatest common divisor (GCD) of two integers using the extended Euclidean algorithm.
- * 
+ *
  * The extended Euclidean algorithm not only computes the GCD of two integers `a` and `b`,
  * but also determines Bézout coefficients `s` and `t` such that `s × a + t × b = gcd(a, b)`.
- * 
+ *
  * @param a The first integer.
  * @param b The second integer.
  * @param s [out] Bézout coefficient `s` such that `s × a + t × b = gcd(a, b)`.
  * @param t [out] Bézout coefficient `t` such that `s × a + t × b = gcd(a, b)`.
  * @return The greatest common divisor (GCD) of `a` and `b`.
- * 
+ *
  * @note If either `a` or `b` is zero, the function returns the absolute value of the other number as the GCD.
  */
 int gcd(int a, int b, int &s, int &t)
@@ -258,15 +258,15 @@ int gcd(int a, int b, int &s, int &t)
 
 /**
  * @brief Computes the least common multiple (LCM) of two integers.
- * 
+ *
  * This function calculates the LCM of two integers `a` and `b` using their prime factorizations.
  * It first decomposes both integers into their prime factors and their respective exponents,
  * then computes the LCM by taking the highest powers of all prime factors present in either number.
- * 
+ *
  * @param a The first integer.
  * @param b The second integer.
  * @return The least common multiple (LCM) of `a` and `b`.
- * 
+ *
  * @note The function uses the `to_factors` function to decompose `a` and `b` into their prime factors
  *       and their exponents. It assumes that `to_factors` correctly computes the factorization.
  */
@@ -278,7 +278,7 @@ int lcm(int a, int b)
      * is divisible by both a and b. The least common multiple of a and b is denoted by lcm(a, b).
      *
      * FORMULE
-     * lcm(a, b) = P_1^max(a_1,b_1) × P_2^max(a_2,b_2) × P_n^max(a_n,b_n) 
+     * lcm(a, b) = P_1^max(a_1,b_1) × P_2^max(a_2,b_2) × P_n^max(a_n,b_n)
      */
     int quantity_factors_a;
     int *bases_a = new int[MAX_FACTORS];
@@ -334,13 +334,13 @@ int lcm(int a, int b)
 
 /**
  * @brief Checks if two integers are coprime.
- * 
+ *
  * Two integers are coprime if their greatest common divisor (GCD) is 1.
- * 
+ *
  * @param a The first integer.
  * @param b The second integer.
  * @return true if `a` and `b` are coprime (gcd(a, b) = 1), false otherwise.
- * 
+ *
  * @note The function uses the `gcd` function to determine the GCD of `a` and `b`.
  */
 bool are_coprimes(int a, int b)
@@ -354,14 +354,14 @@ bool are_coprimes(int a, int b)
 
 /**
  * @brief Checks if all integers in a set are pairwise coprime.
- * 
+ *
  * Integers in a set are pairwise coprime if every pair of distinct integers in the set
  * has a greatest common divisor (GCD) of 1.
- * 
+ *
  * @param size The number of integers in the set.
  * @param set Pointer to an array of integers representing the set.
  * @return true if all integers in the set are pairwise coprime, false otherwise.
- * 
+ *
  * @note The function uses the `are_coprimes` function to check the coprimality of each pair of integers in the set.
  */
 bool are_pairwise_coprimes(int size, int *set)
@@ -385,9 +385,9 @@ bool are_pairwise_coprimes(int size, int *set)
 
 /**
  * @brief Checks if two integers are congruent modulo m.
- * 
+ *
  * Two integers `a` and `b` are congruent modulo `m` if (a - b) is divisible by `m`.
- * 
+ *
  * @param a The first integer.
  * @param b The second integer.
  * @param m The modulus.
@@ -407,15 +407,15 @@ bool are_congruents(int a, int b, int m)
 
 /**
  * @brief Computes the modular multiplicative inverse of an integer `a` modulo `m`.
- * 
+ *
  * Computes an integer `x` such that (a × x) ≡ 1 (mod m), if such an integer exists.
- * 
+ *
  * @param a The integer for which the inverse modulo is sought.
  * @param b Ignored parameter in the context of the function. It could be removed.
  * @param m The modulus.
  * @return The modular multiplicative inverse of `a` modulo `m`.
  * @throws std::runtime_error If no inverse exists (gcd(a, m) != 1).
- * 
+ *
  * @note The function uses the `gcd` function to find the GCD of `a` and `m`, and
  *       the extended Euclidean algorithm to compute the inverse if gcd(a, m) = 1.
  */
@@ -460,16 +460,16 @@ int inverse_mod(int a, int b, int m)
 
 /**
  * @brief Solves a linear congruence of the form ax ≡ b (mod m) for x.
- * 
+ *
  * Computes the solution x to the linear congruence equation ax ≡ b (mod m), where a, b, and m are integers.
- * 
+ *
  * @param a Coefficient of x in the congruence equation.
  * @param b Constant term in the congruence equation.
  * @param m Modulus of the congruence.
  * @return The smallest non-negative integer x satisfying the congruence, or -1 if no solution exists.
- * 
+ *
  * @throws std::runtime_error If no solution exists (gcd(a, m) does not divide b).
- * 
+ *
  * @note The function uses the `inverse_mod` function to find the modular multiplicative inverse
  *       of `a` modulo `m` if gcd(a, m) divides `b`, then computes the solution using properties of congruences.
  */
@@ -501,7 +501,8 @@ int linear_congruence(int a, int b, int m)
     /*
      * Smallest non-negative integer
      */
-    if (b < 0) b = b + m;
+    if (b < 0)
+        b = b + m;
 
     /*
      * x ≡ b (mod m)
@@ -513,17 +514,17 @@ int linear_congruence(int a, int b, int m)
 
 /**
  * @brief Solves a system of congruences using the Chinese Remainder Theorem (CRT).
- * 
+ *
  * Solves a system of congruences of the form x ≡ residues[i] (mod modules[i]) for x,
  * where modules and residues are arrays representing the moduli and residues respectively.
- * 
+ *
  * @param quantity The number of congruences in the system.
  * @param modules Pointer to an array of integers representing the moduli (m_i).
  * @param residues Pointer to an array of integers representing the residues (a_i).
  * @return The smallest non-negative integer x satisfying all congruences, or -1 if no solution exists.
- * 
+ *
  * @throws std::runtime_error If any modulus in the system is not coprime with all others (gcd(modules[i], modules[j]) != 1 for some i, j).
- * 
+ *
  * @note The function computes the product m = m_1 × m_2 × ... × m_n and uses the Chinese Remainder Theorem
  *       to find x such that x ≡ residues[i] (mod modules[i]) for all i. It uses the gcd function to check coprimality
  *       between moduli and their respective residues to find the solution.
@@ -551,15 +552,14 @@ int crt(int quantity, int *modules, int *residues)
     }
 
     /*
-     * s_i = inverse of (M_i mod m_i) 
+     * s_i = inverse of (M_i mod m_i)
      */
     for (int i = 0; i < quantity; i++)
     {
         int s, t;
         gcd(M[i], modules[i], s, t);
 
-        if (s < 0) s = s + modules[i];
-            
+
         modular_inverses[i] = s;
     }
 
@@ -575,7 +575,8 @@ int crt(int quantity, int *modules, int *residues)
     /*
      * x ≡ x_0 (mod m)
      */
-    int x = x_0 % m;
+    if (x_0 < 0) x_0 = ((x_0 % m) + m);
+    int x = x_0;
 
     delete[] M;
     delete[] modular_inverses;
@@ -586,9 +587,9 @@ int crt(int quantity, int *modules, int *residues)
 /**
  * @brief Calculates Euler's Totient function (φ(n)) for a given integer n.
  *
- * This function computes the value of Euler's Totient function, which counts 
- * the number of integers up to n that are relatively prime to n. It first 
- * factors the integer n into its prime bases and their respective exponents, 
+ * This function computes the value of Euler's Totient function, which counts
+ * the number of integers up to n that are relatively prime to n. It first
+ * factors the integer n into its prime bases and their respective exponents,
  * then uses these factors to calculate φ(n) using the formula:
  *
  * φ(n) = n × (1 - 1/p1) × (1 - 1/p2) × ... × (1 - 1/pk)
@@ -606,26 +607,26 @@ int totiente_euler(unsigned int n)
      * Let n be a natural number. We define the function φ : ℕ → ℕ given by
      * φ(n) = |{k ∈ ℕ : 1 ≤ k ≤ n and gcd(k,n) = 1}|, where |A| determines the
      * number of elements in a set A.
-     * 
+     *
      * Proposition 1:
      * We have φ(2) = 1 and φ(n) ≥ 2, for all natural n ≥ 3.
-     * 
+     *
      * Proposition 2:
      * Let n be a natural number, so φ(n) = n - 1 if n is prime.
-     * 
+     *
      * Theorem 1:
      * Given n and m two coprime positive integers, then φ(n × m) = φ(n) × φ(m).
-     * 
+     *
      * Corollary 1:
      * If {m_1, m_2, ..., m_r} is a pairwise coprimes set so
      * φ(m_1 × m_2 × ... × m_r) = φ(m_1) × φ(m_2) × ... × c(m_r).
-     * 
+     *
      * Note that if N = p × q, where p and q are prime so φ(N) = φ(p × q) = φ(p) × φ(p) = (p - 1) × (q - 1).
-     * 
+     *
      * Theorem 2:
      * Let p be a prime and α a positive integer so
      * φ(p^α) = p^α - p^(α - 1) = p^(α - 1) × (p - 1) = p^α × (1 - 1/p).
-     * 
+     *
      * Theorem 3:
      * Let n = p_1^r_1 × p_2^r_2 × ... × p_k^r_k the decomposition of n into prime factors. So
      * φ(n) = p_1^r_1 × p_2^r_2 × ... × p_k^r_k × (p_1 - 1) × (p_2 - 1) × ... × (p_k - 1).
@@ -682,7 +683,8 @@ bool is_complete_residues_system(int m, int quantity_residues, int *residues)
     {
         for (int j = i + 1; j < quantity_residues; j++)
         {
-            if (are_congruents(residues[i], residues[j], m)) return false;
+            if (are_congruents(residues[i], residues[j], m))
+                return false;
         }
     }
     /*
@@ -724,9 +726,11 @@ bool is_reduced_residues_system(int m, int quantity_residues, int *residues)
     {
         for (int j = i + 1; j < quantity_residues; j++)
         {
-            if (are_congruents(residues[i], residues[j], m)) return false;
+            if (are_congruents(residues[i], residues[j], m))
+                return false;
         }
-        if (!are_coprimes(residues[i], m)) return false;
+        if (!are_coprimes(residues[i], m))
+            return false;
     }
     return true;
 }
@@ -806,11 +810,24 @@ int *to_residues(int n, int quantity_modules, int *modules)
         std::string msg_error = "Parameter received is not valid\n";
         throw std::runtime_error(msg_error);
     }
-    
+
     int *residues = new int[quantity_modules];
     for (int i = 0; i < quantity_modules; i++)
     {
         residues[i] = n % modules[i];
     }
     return residues;
+}
+
+int main()
+{
+    int q = 3;
+    int m[] = {8, 7, 9};
+    int n[] = {7, 2, 4};
+
+    int x = crt(q, m, n);
+
+    std::cout << x << "\n";
+
+    return 0;
 }
