@@ -444,7 +444,7 @@ int inverse_mod(int a, int b, int m)
             b = b / gcd_am;
             m = b / gcd_am;
 
-            return linear_congruence(a, b, m);
+            return inverse_mod(a, b, m);
         }
         else
         {
